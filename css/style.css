@@ -1,10 +1,27 @@
  body{
-   background-color: black;
+   background-color: white;
+   text-align: center;
+   background-position: center;
  }
 
 h1{
   font-family:Helvetica;
   font-size: 70px;
   font-weight: bold;
-  color: red;
+  color: white;
+}
+
+.menu{
+  background-image:url(https://s3.amazonaws.com/codecademy-content/programs/freelance-one/broadway/images/the-flatiron-building.png);
+  font-family: Helvetica;
+  font-size:18px;
+  color: white;
+}
+
+.Second{
+  font-family: Helvetica;
+  font-size: 23px;
+  font-weight: bold;
+  color:white;
+  background-image:url(https://s3.amazonaws.com/codecademy-content/programs/freelance-one/broadway/images/the-flatiron-building.png);
 }
