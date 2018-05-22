@@ -25,3 +25,27 @@ h1{
   color:white;
   background-image:url(https://s3.amazonaws.com/codecademy-content/programs/freelance-one/broadway/images/the-flatiron-building.png);
 }
+
+.list h2{
+  font-family: Helvetica;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.list h3{
+  font-family: Helvetica
+  font-size:23px;
+  font-weight: bold;
+
+  }
+.list h3 p{
+  font-family: Helvetica
+  font-size:14px;
+}
+
+.second{
+  font-family: Helvetica
+  font-size:23px;
+  font-weight: bold;
+  color:white;
+}
