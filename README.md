@@ -6,6 +6,8 @@ I was charged in localization, production automobile parts.
 I think the time was came to change my circumstance, enough worked in Russia and automobile production.
 4~5 years before I'd learned C++ my self, but i quit because it was too confused and nothing motivated me, moreover i concetrated learn in Russian.
 
+Now, I decided to become a great development, that realize my imagination, purpose and future. 
+
 - 👀 I’m interested in Reading a book and development 
 - 🌱 I’m currently learning Javascripts
 - 💞️ I’m looking to collaborate on ...
