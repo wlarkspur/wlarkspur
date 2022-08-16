@@ -8,10 +8,9 @@ I think the time was came to change my circumstance, enough worked in Russia and
 
 Now, I decided to become a great development, that realize my imagination, purpose and future. 
 
-- 👀 I’m interested in Reading a book and development 
-- 🌱 I’m currently learning Javascripts
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+
+1. Js
+
 
 <!---
 wlarkspur/wlarkspur is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
