@@ -1,7 +1,6 @@
 - 👋 Hi, I’m @wlarkspur
 
 My major is Russian language and culture, and worked in Russia about 5 years.
-I was charged in localization, production automobile parts.
 
 I think the time was came to change my circumstance, enough worked in Russia and automobile production.
 4~5 years before I'd learned C++ my self, but i quit because it was too confused and nothing motivated me, moreover i concetrated learn in Russian.
