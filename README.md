@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Trolley Status WEBPAGE Project
 
 해당 프로젝트는 Logistic Trolley 현황을 차량 Model/Parts 별로 구분하여
 그 현황을 사용자가 업데이트하여 관리 및 유지를 용이하게 함으로써 공장 내 물류시스템
