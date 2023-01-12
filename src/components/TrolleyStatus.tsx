@@ -1,26 +1,32 @@
 import styled from "styled-components";
-import styles from "../App.module.css";
+import styles from "../module.css/Root.module.css";
 import React, { Component } from "react";
+import { Outlet } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: grid;
-  width: 1500px;
-  grid-template-columns: repeat(12, 1fr) ;
-  grid-templae-rows: 1fr 1fr 
-  background-color: black;
-  grid-auto-rows: 30px;
+  width: 100vw;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 10px, repeat(6, 1fr);
   gap: 1px;
+  grid-auto-rows: 30px;
+  font-size: 12px;
+  font-family: Nunito;
+  max-height: 100vh;
 `;
 
 const Box = styled.div`
   display: grid;
+  outline: 1px solid grey;
   justify-content: center;
   align-items: center;
-  color: white;
-  border: solid 1px grey;
+  color: black;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: normal;
 `;
 
-function Window() {
+function TrolleyStatus() {
   return (
     <Wrapper>
       <Box className={styles.code}>Code</Box>
@@ -94,4 +100,4 @@ function Window() {
   );
 }
 
-export default Window;
+export default TrolleyStatus;
