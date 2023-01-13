@@ -74,6 +74,21 @@ a{
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  height: 200vh;
+`;
+
+const Header = styled.div`
+  width: 100vw;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  position: fixed;
+`;
+
+const WrapperContent = styled.div`
+  display: flex;
+  position: relative;
 `;
 
 const SideBar = styled.div`
@@ -85,6 +100,8 @@ const SideBar = styled.div`
   align-items: flex-start;
   padding-top: 50px;
   box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50px;
 `;
 
 const NavMenu = styled.ul`
@@ -117,26 +134,30 @@ function Root() {
   return (
     <Wrapper>
       <GlobalStyle />
-      <SideBar>
-        <NavMenu>
-          <li>
-            <Link to="/trolley">
-              <span>Trolley List</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/Model">
-              <span>Model</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/Parts">
-              <span>Parts</span>
-            </Link>
-          </li>
-        </NavMenu>
-      </SideBar>
-      <Outlet />
+      <Header>{}</Header>
+      <WrapperContent>
+        <SideBar>
+          <NavMenu>
+            <li>
+              <Link to="/trolley">
+                <span>Trolley List</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/Model">
+                <span>Model</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/Parts">
+                <span>Parts</span>
+              </Link>
+            </li>
+          </NavMenu>
+        </SideBar>
+
+        <Outlet />
+      </WrapperContent>
     </Wrapper>
   );
 }
