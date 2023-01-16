@@ -80,10 +80,31 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   width: 100vw;
-  height: 50px;
+  height: 60px;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span:last-child {
+    justify-content: space-between;
+    margin-right: 100px;
+  }
+  span:first-child {
+    margin-right: 50px;
+  }
+  span {
+    font-family: Nunito;
+    font-weight: 700;
+    right: 0;
+  }
+  div {
+    display: flex;
+    justify-content: flex-start;
+    scale: 1;
+    margin-left: 65px;
+  }
 `;
 
 const WrapperContent = styled.div`
@@ -101,7 +122,7 @@ const SideBar = styled.div`
   padding-top: 50px;
   box-shadow: 2px 0px 3px rgba(0, 0, 0, 0.2);
   position: fixed;
-  top: 50px;
+  top: 60px;
 `;
 
 const NavMenu = styled.ul`
@@ -119,8 +140,8 @@ const NavMenu = styled.ul`
   }
   li {
     display: flex;
-    margin: 10px;
-    padding: 12px 0px;
+    margin: 5px;
+    padding: 10px 0px;
     :hover {
       background-color: rgba(216, 220, 228, 0.8);
       color: #353131;
@@ -134,12 +155,21 @@ function Root() {
   return (
     <Wrapper>
       <GlobalStyle />
-      <Header>{}</Header>
+      <Header>
+        <div>
+          <img src="http://www.youngsan.com/img/m_logo.png" />
+        </div>
+
+        <form action="">
+          <span>JOIN</span>
+          <span>LOG IN</span>
+        </form>
+      </Header>
       <WrapperContent>
         <SideBar>
           <NavMenu>
             <li>
-              <Link to="/trolley">
+              <Link to="/Code">
                 <span>Trolley List</span>
               </Link>
             </li>

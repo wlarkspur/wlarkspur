@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import styles from "../module.css/Root.module.css";
-import React, { Component, useRef, useState } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Wrapper = styled(motion.div)`
   position: relative;
@@ -11,20 +11,21 @@ const Wrapper = styled(motion.div)`
 `;
 
 const NewContent = styled(motion.div)`
-  width: 700px;
+  width: 50%;
   height: 500px;
   background-color: rgba(245, 245, 220, 1);
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 600px;
+  left: 400px;
   top: 100px;
   border-radius: 20px;
 `;
 
 const BoxWrapper = styled.div`
   display: grid;
-  width: 100vw;
+  width: 70vw;
+  max-width: 80vw;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 10px, repeat(6, 1fr);
   grid-gap: 1px;
@@ -34,9 +35,14 @@ const BoxWrapper = styled.div`
   margin-right: 5px;
   background-color: whitesmoke;
   max-width: 80vw;
-  left: 252px;
-  top: 87px;
+  left: 432px;
+  /* transform: translateX(-50%); */
+  top: 107px;
+  background: cover;
   position: absolute;
+  /* @media (max-width: 600px) {
+    width: 90vw;
+  } */
   z-index: -1;
 `;
 
@@ -46,7 +52,7 @@ const BoxHeader = styled(motion.div)`
   position: fixed;
   width: 100vw;
   left: 250px;
-  top: 50px;
+  top: 60px;
   height: 35px;
   align-items: center;
 `;
@@ -113,8 +119,24 @@ function TrolleyStatus() {
   const [newItem, setNewItem] = useState(false);
   const toggleItem = () => setNewItem((prev) => !prev);
   const constraintsRef = useRef(null);
+  const exitNewItem = () => {
+    if (newItem === false) return;
+    setNewItem(false);
+  };
+  const handleEscape = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === `Escape`) {
+      exitNewItem();
+    }
+    console.log(event.key);
+  };
+  /* useEffect(() => {
+    window.addEventListener("keydown", handleEscape);
+    return () => {
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, []); */
   return (
-    <Wrapper>
+    <Wrapper onKeyDown={handleEscape}>
       <BoxHeader>
         <Button onClick={toggleItem}>New</Button>
       </BoxHeader>
@@ -189,38 +211,43 @@ function TrolleyStatus() {
           trunk lamp assy
         </Box>
       </BoxWrapper>
-      <BoxLimit ref={constraintsRef}>
-        {newItem ? (
-          <NewContent
-          /* drag
-            dragConstraints={constraintsRef}
-            transition={{ type: "spring", damping: 100, stiffness: 100 }} */
-          >
-            <InputBox>
-              <InputSpan>
-                <div>
-                  {/* <span>Code</span> */}
-                  <input placeholder="Code" type="text" />
-                </div>
-                <div>
-                  {/* <span>Type</span> */}
-                  <input placeholder="Type" type="text" />
-                </div>
-                <div>
-                  {/* <span>Name</span> */}
-                  <input placeholder="Name" type="text" />
-                </div>
-                <div>
-                  {/* <span>Details</span> */}
-                  <input placeholder="Details" type="text" />
-                </div>
+      <AnimatePresence>
+        <BoxLimit /* ref={constraintsRef} */>
+          {newItem ? (
+            <NewContent
+              /* drag
+              dragConstraints={constraintsRef} */
+              transition={{ type: "tween" }}
+            >
+              <InputBox>
+                <InputSpan>
+                  <div>
+                    {/* <span>Code</span> */}
+                    <input placeholder="Code" type="text" />
+                  </div>
+                  <div>
+                    {/* <span>Type</span> */}
+                    <input placeholder="Type" type="text" />
+                  </div>
+                  <div>
+                    {/* <span>Name</span> */}
+                    <input placeholder="Name" type="text" />
+                  </div>
+                  <div>
+                    {/* <span>Details</span> */}
+                    <input placeholder="Details" type="text" />
+                  </div>
 
-                <input type="submit" value="Add new trolley" />
-              </InputSpan>
-            </InputBox>
-          </NewContent>
-        ) : null}
-      </BoxLimit>
+                  <input type="submit" value="Add new trolley" />
+                </InputSpan>
+                <div>
+                  <section></section>
+                </div>
+              </InputBox>
+            </NewContent>
+          ) : null}
+        </BoxLimit>
+      </AnimatePresence>
     </Wrapper>
   );
 }

@@ -5,6 +5,7 @@ import TrolleyStatus from "./components/TrolleyStatus";
 import ErrorPage from "./components/ErrorPage";
 import Model from "./components/Model";
 import Parts from "./components/Parts";
+import Code from "./components/Code";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,14 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: "trolley",
-        element: <TrolleyStatus />,
+        path: "code",
+        element: <Code />,
+        children: [
+          {
+            path: "trolley",
+            element: <TrolleyStatus />,
+          },
+        ],
       },
       {
         path: "model",
