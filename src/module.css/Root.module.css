@@ -72,5 +72,5 @@
 .partsContent {
   grid-column: 4/13;
   grid-row: 6/17;
-  overflow: auto;
+  overflow: hidden;
 }

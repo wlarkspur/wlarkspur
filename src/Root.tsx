@@ -81,7 +81,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   width: 100vw;
   height: 60px;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 1);
   color: white;
   position: fixed;
   display: flex;
@@ -105,6 +105,8 @@ const Header = styled.div`
     scale: 1;
     margin-left: 65px;
   }
+  overflow: hidden;
+  z-index: 10;
 `;
 
 const WrapperContent = styled.div`

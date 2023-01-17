@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Outlet, RouterProvider } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
-
 import router from "./router";
 
 const GlobalStyle = createGlobalStyle`

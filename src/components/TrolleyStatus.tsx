@@ -48,13 +48,14 @@ const BoxWrapper = styled.div`
 
 const BoxHeader = styled(motion.div)`
   display: flex;
-  background-color: #000000;
+  background-color: rgba(9, 132, 227, 1);
   position: fixed;
   width: 100vw;
   left: 250px;
   top: 60px;
   height: 35px;
   align-items: center;
+  z-index: 8;
 `;
 
 const Button = styled(motion.button)`
@@ -64,6 +65,7 @@ const Button = styled(motion.button)`
   margin-left: 10px;
   background-color: white;
   border-radius: 8px;
+  z-index: 5;
   box-shadow: 0 0 2px 3px rgba(255, 255, 255, 0.2);
   :hover {
     background-color: black;
@@ -113,6 +115,7 @@ const BoxLimit = styled(motion.div)`
   background-color: transparent;
   left: 250px;
   top: 85px;
+  z-index: -1;
 `;
 
 function TrolleyStatus() {
@@ -140,6 +143,7 @@ function TrolleyStatus() {
       <BoxHeader>
         <Button onClick={toggleItem}>New</Button>
       </BoxHeader>
+      <Outlet />
       <BoxWrapper>
         <Box className={styles.code}>Code</Box>
         <Box className={styles.codeContent}>01-UNIV-001</Box>
@@ -212,7 +216,7 @@ function TrolleyStatus() {
         </Box>
       </BoxWrapper>
       <AnimatePresence>
-        <BoxLimit /* ref={constraintsRef} */>
+        <BoxLimit /* ref={constraintsRef}  */>
           {newItem ? (
             <NewContent
               /* drag

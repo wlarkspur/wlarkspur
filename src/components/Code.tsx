@@ -9,9 +9,22 @@ const CodeListBar = styled(motion.div)`
   width: 180px;
   height: 200vh;
   background-color: rgba(0, 0, 0, 0.6);
-  position: fixed;
+  position: absolute;
   left: 250px;
   top: 60px;
+  z-index: 0;
+`;
+
+const BoxHeader = styled(motion.div)`
+  display: flex;
+  background-color: rgba(9, 132, 227, 0.9);
+  position: fixed;
+  width: 100vw;
+  left: 250px;
+  top: 60px;
+  height: 35px;
+  align-items: center;
+  z-index: 8;
 `;
 
 const CodeListUl = styled.ul`
@@ -37,30 +50,35 @@ const CodeListLi = styled.li`
   position: relative;
 `;
 
-const RedDot = styled.div`
-  width: 10px;
-  height: 10px;
+const GreenDot = styled.div`
+  width: 5px;
+  height: 5px;
   border-radius: 5px;
-  background-color: #1eff00;
+  background-color: #00ff0d;
   position: absolute;
   bottom: 10px;
-  right: 35px;
+  right: 15px;
+  opacity: 0;
 `;
 
 function Code() {
-  const [redDot, setRedDot] = useState();
+  const [selected, setSelected] = useState("");
+  const handleClick = (event: string) => {
+    setSelected(event);
+  };
   return (
     <>
+      <BoxHeader />
       <CodeListBar>
         <CodeListUl>
-          <CodeListLi>
-            <Link to="trolley">{db.code[0]}</Link>
-            <RedDot />
-          </CodeListLi>
-          <CodeListLi>{db.code[1]}</CodeListLi>
-          <CodeListLi>{db.code[2]}</CodeListLi>
-          <CodeListLi>{db.code[3]}</CodeListLi>
-          <CodeListLi>{db.code[4]}</CodeListLi>
+          {db.code.map((code) => (
+            <CodeListLi key={code}>
+              <Link to="trolley" onClick={() => handleClick(code)}>
+                {code}
+                {selected === code && <GreenDot style={{ opacity: 1 }} />}
+              </Link>
+            </CodeListLi>
+          ))}
         </CodeListUl>
       </CodeListBar>
       <Outlet />
