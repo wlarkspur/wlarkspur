@@ -1,44 +1,42 @@
-const db = {
-  code: [
-    "01-UNIV-001",
-    "02-UNIV-001",
-    "03-PIPE-001",
-    "04-BUMP-001",
-    "05-BUMP-001",
-    "06-HONEY-001",
-    "07-MUFF-001",
-    "08-ENG-001",
-    "09-TIRE-001",
-    "10-BOOK-001",
-    "11-WH-001",
-    "12-TRAP-001",
-    "13-CURTON-001",
-    "14-BENCH-001",
-    "15-GMINI-001",
-    "16-WHEEL-001",
-    "17-LRAIL-001",
-    "18-LOWRACK-001",
-    "19-TRAIN-001",
-    "20-HOUSE-001",
-    "21-BED-001",
-    "22-SRAIL-001",
-    "23-MULTI-001",
-    "24-PIANO-001",
-    "25-LOWSUSP-001",
-    "26-3FSUS-001",
-    "27-SAFE-001",
-    "28-SHAFT-001",
-    "29-SPRING-001",
-    "30-GRILL-001",
-    "31-WIPER-001",
-    "32-STARTER-001",
-    "33-BRIDGE-001",
-    "34-6/4CASE-001",
-    "35-LONGWH-001",
-    "36-NET-001",
-    "37-BATTERY-001",
-    "38-WILDLOW-001",
-  ],
+import { useEffect } from "react";
+import { MongoClient } from "mongodb";
+
+let url =
+  "mongodb+srv://newacon:as3333@cluster0.ey3wmxk.mongodb.net/?retryWrites=true&w=majority";
+
+const client = new MongoClient(url);
+
+async function run() {
+  try {
+    await client.connect();
+    console.log("Connected correctly to server");
+  } catch (err) {
+    console.log((err as Error).stack);
+  } finally {
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+// ChatGPT choice
+/* export const connect = async () => {
+  try {
+    await client.connect();
+    console.log("MongoDB Connected");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export default db;
+useEffect(() => {
+  const closeConnection = async () => {
+    try {
+      await client.connect();
+      console.log("MongoDB connected");
+    } catch (error) {
+      console.log(error);
+    }
+    return () => client.close();
+  };
+  closeConnection;
+}, []); */

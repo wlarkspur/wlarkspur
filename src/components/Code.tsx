@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { useQuery } from "react-query";
-import db from "../db";
+import db from "../localDB";
 import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ const CodeListBar = styled(motion.div)`
 
 const BoxHeader = styled(motion.div)`
   display: flex;
-  background-color: rgba(9, 132, 227, 0.9);
+  background-color: rgba(9, 132, 227, 1);
   position: fixed;
   width: 100vw;
   left: 250px;
@@ -43,7 +43,7 @@ const CodeListLi = styled.li`
   padding: 2px 5px;
   border-radius: 5px;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
     color: black;
     scale: 1.1;
   }

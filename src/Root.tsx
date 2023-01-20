@@ -1,12 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import React from "react";
-import styles from "./Root.module.css";
-import Window from "./components/TrolleyStatus";
+
 import { createBrowserRouter, Link, NavLink, Outlet } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import TrolleyStatus from "./components/TrolleyStatus";
-import ErrorPage from "./components/ErrorPage";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
