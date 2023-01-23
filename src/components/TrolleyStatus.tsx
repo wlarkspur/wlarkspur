@@ -14,6 +14,14 @@ const Wrapper = styled(motion.div)`
   justify-content: center;
 `;
 
+const ContentWrapper = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 30%;
+  width: 100vw;
+  width: 100vh;
+`;
+
 const NewContent = styled(motion.div)`
   width: 500px;
   height: 500px;
@@ -22,6 +30,7 @@ const NewContent = styled(motion.div)`
   align-items: center;
   position: absolute;
   left: 1000px;
+  margin: 0 auto;
   /* top: 200px; */
   border-radius: 20px;
   border: 2px solid rgba(21, 75, 146, 0.8);
@@ -239,45 +248,46 @@ function TrolleyStatus() {
         </Box>
       </BoxWrapper>
       <AnimatePresence>
-        {newItem ? (
-          <NewContent
-            style={{ top: scrollY.get() + 200 }}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            onKeyDown={handleEscape}
-            transition={{ type: "tween" }}
-          >
-            <Xbutton onClick={exitClick}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </Xbutton>
+        <ContentWrapper /* style={{ top: scrollY.get() + 200 }} */>
+          {newItem ? (
+            <NewContent
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              onKeyDown={handleEscape}
+              transition={{ type: "tween" }}
+            >
+              <Xbutton onClick={exitClick}>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </Xbutton>
 
-            <InputBox /* onKeyDown={handleEscape} */>
-              <InputSpan>
-                {/* <span>Code</span> */}
-                <input placeholder="Code" type="text" />
+              <InputBox /* onKeyDown={handleEscape} */>
+                <InputSpan>
+                  {/* <span>Code</span> */}
+                  <input placeholder="Code" type="text" />
 
-                <div>
-                  {/* <span>Type</span> */}
-                  <input placeholder="Type" type="text" />
-                </div>
-                <div>
-                  {/* <span>Name</span> */}
-                  <input placeholder="Name" type="text" />
-                </div>
-                <div>
-                  {/* <span>Details</span> */}
-                  <input placeholder="Details" type="text" />
-                </div>
+                  <div>
+                    {/* <span>Type</span> */}
+                    <input placeholder="Type" type="text" />
+                  </div>
+                  <div>
+                    {/* <span>Name</span> */}
+                    <input placeholder="Name" type="text" />
+                  </div>
+                  <div>
+                    {/* <span>Details</span> */}
+                    <input placeholder="Details" type="text" />
+                  </div>
 
-                <input type="submit" value="Add new trolley" />
-              </InputSpan>
-              <div>
-                <section></section>
-              </div>
-            </InputBox>
-          </NewContent>
-        ) : null}
+                  <input type="submit" value="Add new trolley" />
+                </InputSpan>
+                <div>
+                  <section></section>
+                </div>
+              </InputBox>
+            </NewContent>
+          ) : null}
+        </ContentWrapper>
       </AnimatePresence>
     </Wrapper>
   );
