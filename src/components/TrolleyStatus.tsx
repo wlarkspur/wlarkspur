@@ -14,6 +14,7 @@ const Wrapper = styled(motion.div)`
   justify-content: center;
 `;
 
+// scorllY 값 제거후 fixed, 로 해결
 const ContentWrapper = styled(motion.div)`
   position: fixed;
   left: 0;
