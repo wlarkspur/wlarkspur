@@ -76,4 +76,25 @@ trolleyRouter.put("/:id", async (req: Request, res: Response) => {
 // DELETE
 trolleyRouter.delete("/:id", async (req: Request, res: Response) => {
   const id = req.params.id;
+
+  try {
+    const query = { _id: new ObjectId(id) };
+    const result = await collections.Trolley?.deleteOne(query);
+
+    if (result && result.deletedCount) {
+      res.status(202).send(`Successfully removed game with id ${id}`);
+    } else if (!result) {
+      res.status(400).send(`Faled to remove hame with id ${id}`);
+    } else if (!result.deletedCount) {
+      res.status(404).send(`Trolley with id ${id} does not exist`);
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+      res.status(400).send(error.message);
+    }
+  }
 });
+/* const typeError = error as Error;
+    console.error(typeError.message);
+    res.status(400).send(typeError.message); */

@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
 body{
   background-color: white
 }
+
 `;
 
 const root = ReactDOM.createRoot(

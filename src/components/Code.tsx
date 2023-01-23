@@ -61,6 +61,10 @@ const GreenDot = styled.div`
   opacity: 0;
 `;
 
+const LinkList = styled.div`
+  /* padding-right: 20%; */
+`;
+
 function Code() {
   const [selected, setSelected] = useState("");
   const handleClick = (event: string) => {
@@ -74,7 +78,7 @@ function Code() {
           {db.code.map((code) => (
             <CodeListLi key={code}>
               <Link to="trolley" onClick={() => handleClick(code)}>
-                {code}
+                <LinkList>{code}</LinkList>
                 {selected === code && <GreenDot style={{ opacity: 1 }} />}
               </Link>
             </CodeListLi>

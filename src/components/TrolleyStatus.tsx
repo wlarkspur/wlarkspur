@@ -2,8 +2,12 @@ import styled from "styled-components";
 import styles from "../module.css/Root.module.css";
 import React, { Component, useEffect, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import { useScroll } from "framer-motion";
 
+//<FontAwesomeIcon icon="fa-regular fa-circle-xmark" />
 const Wrapper = styled(motion.div)`
   position: relative;
   display: flex;
@@ -11,15 +15,16 @@ const Wrapper = styled(motion.div)`
 `;
 
 const NewContent = styled(motion.div)`
-  width: 50%;
+  width: 500px;
   height: 500px;
   background-color: rgba(245, 245, 220, 1);
   justify-content: center;
   align-items: center;
   position: absolute;
-  left: 400px;
-  top: 100px;
+  left: 1000px;
+  /* top: 200px; */
   border-radius: 20px;
+  border: 2px solid rgba(21, 75, 146, 0.8);
 `;
 
 const BoxWrapper = styled.div`
@@ -112,16 +117,25 @@ const BoxLimit = styled(motion.div)`
   position: fixed;
   width: 80vw;
   height: 800px;
-  background-color: transparent;
+  background-color: red;
   left: 250px;
   top: 85px;
-  z-index: -1;
+`;
+const Xbutton = styled.div`
+  width: 35px;
+  height: 35px;
+  font-size: 25px;
+  top: 10px;
+  right: 0;
+  color: rgba(255, 0, 0, 0.7);
+  position: absolute;
+  cursor: pointer;
 `;
 
 function TrolleyStatus() {
   const [newItem, setNewItem] = useState(false);
+  const { scrollY } = useScroll();
   const toggleItem = () => setNewItem((prev) => !prev);
-  const constraintsRef = useRef(null);
   const exitNewItem = () => {
     if (newItem === false) return;
     setNewItem(false);
@@ -132,6 +146,16 @@ function TrolleyStatus() {
     }
     console.log(event.key);
   };
+  const exitClick = () => {
+    newItem && setNewItem(false);
+  };
+  /* const handleDrag = (event: any, data: any) => {
+    setX(data.x);
+    setY(data.y);
+  };
+  const handleClick = () => {
+    setDrag(!drag);
+  }; */
   /* useEffect(() => {
     window.addEventListener("keydown", handleEscape);
     return () => {
@@ -158,7 +182,6 @@ function TrolleyStatus() {
           Универсальная четырехпольная тележка
         </Box>
         <Box className={styles.photo}>Photo here!</Box>
-
         <Box className={styles.totalQty}>Total quantity</Box>
         <Box className={styles.totalQtyContent}>82</Box>
         <Box className={styles.description}>Description</Box>
@@ -216,41 +239,45 @@ function TrolleyStatus() {
         </Box>
       </BoxWrapper>
       <AnimatePresence>
-        <BoxLimit /* ref={constraintsRef}  */>
-          {newItem ? (
-            <NewContent
-              /* drag
-              dragConstraints={constraintsRef} */
-              transition={{ type: "tween" }}
-            >
-              <InputBox>
-                <InputSpan>
-                  <div>
-                    {/* <span>Code</span> */}
-                    <input placeholder="Code" type="text" />
-                  </div>
-                  <div>
-                    {/* <span>Type</span> */}
-                    <input placeholder="Type" type="text" />
-                  </div>
-                  <div>
-                    {/* <span>Name</span> */}
-                    <input placeholder="Name" type="text" />
-                  </div>
-                  <div>
-                    {/* <span>Details</span> */}
-                    <input placeholder="Details" type="text" />
-                  </div>
+        {newItem ? (
+          <NewContent
+            style={{ top: scrollY.get() + 200 }}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            onKeyDown={handleEscape}
+            transition={{ type: "tween" }}
+          >
+            <Xbutton onClick={exitClick}>
+              <FontAwesomeIcon icon={faCircleXmark} />
+            </Xbutton>
 
-                  <input type="submit" value="Add new trolley" />
-                </InputSpan>
+            <InputBox /* onKeyDown={handleEscape} */>
+              <InputSpan>
+                {/* <span>Code</span> */}
+                <input placeholder="Code" type="text" />
+
                 <div>
-                  <section></section>
+                  {/* <span>Type</span> */}
+                  <input placeholder="Type" type="text" />
                 </div>
-              </InputBox>
-            </NewContent>
-          ) : null}
-        </BoxLimit>
+                <div>
+                  {/* <span>Name</span> */}
+                  <input placeholder="Name" type="text" />
+                </div>
+                <div>
+                  {/* <span>Details</span> */}
+                  <input placeholder="Details" type="text" />
+                </div>
+
+                <input type="submit" value="Add new trolley" />
+              </InputSpan>
+              <div>
+                <section></section>
+              </div>
+            </InputBox>
+          </NewContent>
+        ) : null}
       </AnimatePresence>
     </Wrapper>
   );
