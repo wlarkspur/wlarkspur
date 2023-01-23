@@ -1,3 +1,18 @@
+- 👋 Hi, I’m @wlarkspur
+
+My major is Russian language and culture, and worked in Russia about 5 years.
+
+Studying now as follow
+1. Javascript / React
+2. html/css
+
+
+
+
+진행중인 개인프로젝트
+------------------------------------------------------------------------------------------
+
+
 # Trolley Status WEBPAGE Project
 
 해당 프로젝트는 Logistic Trolley 현황을 차량 Model/Parts 별로 구분하여
