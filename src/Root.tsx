@@ -166,7 +166,7 @@ function Root() {
         <SideBar>
           <NavMenu>
             <li>
-              <Link to="/Code">
+              <Link to="/trolley">
                 <span>Trolley List</span>
               </Link>
             </li>

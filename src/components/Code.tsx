@@ -77,7 +77,7 @@ function Code() {
         <CodeListUl>
           {db.code.map((code) => (
             <CodeListLi key={code}>
-              <Link to="trolley" onClick={() => handleClick(code)}>
+              <Link to="code" onClick={() => handleClick(code)}>
                 <LinkList>{code}</LinkList>
                 {selected === code && <GreenDot style={{ opacity: 1 }} />}
               </Link>

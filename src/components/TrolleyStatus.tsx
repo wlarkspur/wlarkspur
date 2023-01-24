@@ -159,6 +159,7 @@ function TrolleyStatus() {
   const exitClick = () => {
     newItem && setNewItem(false);
   };
+  const newContentInput = useRef<HTMLInputElement>(null);
   /* const handleDrag = (event: any, data: any) => {
     setX(data.x);
     setY(data.y);
@@ -180,7 +181,7 @@ function TrolleyStatus() {
       <Outlet />
       <BoxWrapper>
         <Box className={styles.code}>Code</Box>
-        <Box className={styles.codeContent}>01-UNIV-001</Box>
+        <Box className={styles.codeContent}>{"Code"}</Box>
         <Box className={styles.type}>Type</Box>
         <Box className={styles.typeContent}>Universal</Box>
         <Box className={styles.details}>Details</Box>
@@ -265,7 +266,7 @@ function TrolleyStatus() {
               <InputBox /* onKeyDown={handleEscape} */>
                 <InputSpan>
                   {/* <span>Code</span> */}
-                  <input placeholder="Code" type="text" />
+                  <input placeholder="Code" type="text" ref={newContentInput} />
 
                   <div>
                     {/* <span>Type</span> */}
