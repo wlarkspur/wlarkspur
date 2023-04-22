@@ -7,9 +7,10 @@ Studying now as follow
 1. Javascript 
 2. html/css
 3. Typescript
-4. React
-5. Go
-6. NextJS
+4. Python
+5. React
+6. Go
+7. NextJS
 
 
 
