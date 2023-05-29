@@ -11,6 +11,6 @@ Studying now as follow
 5. React
 6. Go
 7. NextJS
-
+8. flutter...ing
 
 
