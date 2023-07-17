@@ -8,9 +8,8 @@ Studying now as follow
 2. html/css
 3. Typescript
 4. Python / Django
-5. React
+5. React / NextJS
 6. Go
-7. NextJS
-8. flutter...ing
+7. flutter...ing
 
 
