@@ -6,7 +6,6 @@
 3. Typescript
 4. Python / Django
 5. React / NextJS
-6. Go
-7. flutter...ing
+
 
 
